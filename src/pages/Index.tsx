@@ -5,7 +5,7 @@ import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import AnimatedTransition from '@/components/AnimatedTransition';
-import { ArrowRight, BarChart3, BookOpen, PieChart, LineChart, RadialCw } from 'lucide-react';
+import { ArrowRight, BarChart3, BookOpen, PieChart, LineChart, Rocket } from 'lucide-react';
 
 const Index = () => {
   const { user } = useAuth();
@@ -75,7 +75,7 @@ const Index = () => {
               </p>
             </AnimatedTransition>
             
-            <AnimatedTransition animation="slide" className="flex flex-col items-center text-center p-6" style={{ animationDelay: '100ms' }}>
+            <AnimatedTransition animation="slide" className="flex flex-col items-center text-center p-6">
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                 <PieChart className="h-7 w-7 text-primary" />
               </div>
@@ -85,7 +85,7 @@ const Index = () => {
               </p>
             </AnimatedTransition>
             
-            <AnimatedTransition animation="slide" className="flex flex-col items-center text-center p-6" style={{ animationDelay: '200ms' }}>
+            <AnimatedTransition animation="slide" className="flex flex-col items-center text-center p-6">
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                 <BookOpen className="h-7 w-7 text-primary" />
               </div>
@@ -111,7 +111,7 @@ const Index = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <AnimatedTransition animation="scale" className="glass-card rounded-xl p-6">
               <h3 className="text-xl font-semibold mb-3 flex items-center">
-                <RadialCw className="h-5 w-5 mr-2 text-blue-500" />
+                <Rocket className="h-5 w-5 mr-2 text-blue-500" />
                 Cloud Computing
               </h3>
               <p className="text-sm text-foreground/70 mb-3">
@@ -124,7 +124,7 @@ const Index = () => {
               </div>
             </AnimatedTransition>
             
-            <AnimatedTransition animation="scale" className="glass-card rounded-xl p-6" style={{ animationDelay: '100ms' }}>
+            <AnimatedTransition animation="scale" className="glass-card rounded-xl p-6">
               <h3 className="text-xl font-semibold mb-3 flex items-center">
                 <LineChart className="h-5 w-5 mr-2 text-purple-500" />
                 AI & Machine Learning
@@ -139,7 +139,7 @@ const Index = () => {
               </div>
             </AnimatedTransition>
             
-            <AnimatedTransition animation="scale" className="glass-card rounded-xl p-6" style={{ animationDelay: '200ms' }}>
+            <AnimatedTransition animation="scale" className="glass-card rounded-xl p-6">
               <h3 className="text-xl font-semibold mb-3 flex items-center">
                 <BarChart3 className="h-5 w-5 mr-2 text-green-500" />
                 Data Analytics
@@ -154,9 +154,9 @@ const Index = () => {
               </div>
             </AnimatedTransition>
             
-            <AnimatedTransition animation="scale" className="glass-card rounded-xl p-6" style={{ animationDelay: '300ms' }}>
+            <AnimatedTransition animation="scale" className="glass-card rounded-xl p-6">
               <h3 className="text-xl font-semibold mb-3 flex items-center">
-                <RadialCw className="h-5 w-5 mr-2 text-red-500" />
+                <Rocket className="h-5 w-5 mr-2 text-red-500" />
                 Business & Management
               </h3>
               <p className="text-sm text-foreground/70 mb-3">

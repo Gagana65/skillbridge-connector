@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, CSSProperties } from 'react';
 import { cn } from '@/lib/utils';
 
 interface AnimatedTransitionProps {
@@ -8,6 +8,7 @@ interface AnimatedTransitionProps {
   show?: boolean;
   animation?: 'fade' | 'slide' | 'scale';
   duration?: number;
+  style?: CSSProperties;
 }
 
 const AnimatedTransition: React.FC<AnimatedTransitionProps> = ({ 
@@ -16,6 +17,7 @@ const AnimatedTransition: React.FC<AnimatedTransitionProps> = ({
   show = true,
   animation = 'fade',
   duration = 400,
+  style,
 }) => {
   const [render, setRender] = useState(show);
   const [animationClass, setAnimationClass] = useState('');
@@ -51,7 +53,8 @@ const AnimatedTransition: React.FC<AnimatedTransitionProps> = ({
       )}
       style={{ 
         animationDuration: `${duration}ms`,
-        transition: `opacity ${duration}ms, transform ${duration}ms` 
+        transition: `opacity ${duration}ms, transform ${duration}ms`,
+        ...style
       }}
     >
       {children}

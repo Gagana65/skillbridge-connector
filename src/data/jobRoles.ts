@@ -3,194 +3,112 @@ export interface Skill {
   id: string;
   name: string;
   category: string;
+  importance: number; // 1-10 scale, 10 being most important
 }
 
 export interface JobRole {
   id: string;
   title: string;
-  description: string;
   category: string;
+  description: string;
   skills: Skill[];
+  icon: string;
 }
 
 const jobRoles: JobRole[] = [
-  // Cloud Computing
   {
-    id: 'cloud-architect',
-    title: 'Cloud Architect',
-    description: 'Design and implement cloud infrastructure solutions for organizations.',
-    category: 'Cloud Computing',
+    id: "cloud-architect",
+    title: "Cloud Architect",
+    category: "Cloud Computing",
+    description: "Design and oversee cloud computing strategies and infrastructure.",
+    icon: "cloud",
     skills: [
-      { id: 'aws', name: 'AWS', category: 'Cloud Platform' },
-      { id: 'azure', name: 'Microsoft Azure', category: 'Cloud Platform' },
-      { id: 'gcp', name: 'Google Cloud Platform', category: 'Cloud Platform' },
-      { id: 'terraform', name: 'Terraform', category: 'Infrastructure as Code' },
-      { id: 'cloudformation', name: 'CloudFormation', category: 'Infrastructure as Code' },
-      { id: 'kubernetes', name: 'Kubernetes', category: 'Container Orchestration' },
-      { id: 'docker', name: 'Docker', category: 'Containerization' },
-      { id: 'microservices', name: 'Microservices Architecture', category: 'Architecture' },
-      { id: 'security', name: 'Cloud Security', category: 'Security' },
-      { id: 'networking', name: 'Networking', category: 'Infrastructure' },
-      { id: 'load-balancing', name: 'Load Balancing', category: 'Infrastructure' },
-      { id: 'ci-cd', name: 'CI/CD Pipelines', category: 'DevOps' }
+      { id: "aws", name: "AWS", category: "Cloud", importance: 10 },
+      { id: "azure", name: "Microsoft Azure", category: "Cloud", importance: 9 },
+      { id: "gcp", name: "Google Cloud Platform", category: "Cloud", importance: 8 },
+      { id: "docker", name: "Docker", category: "Containerization", importance: 9 },
+      { id: "kubernetes", name: "Kubernetes", category: "Orchestration", importance: 9 },
+      { id: "terraform", name: "Terraform", category: "IaC", importance: 8 },
+      { id: "cloudformation", name: "CloudFormation", category: "IaC", importance: 7 },
+      { id: "networking", name: "Cloud Networking", category: "Infrastructure", importance: 9 },
+      { id: "security", name: "Cloud Security", category: "Security", importance: 10 },
+      { id: "cicd", name: "CI/CD Pipelines", category: "DevOps", importance: 8 },
     ]
   },
   {
-    id: 'cloud-engineer',
-    title: 'Cloud Engineer',
-    description: 'Build and maintain cloud infrastructure and services.',
-    category: 'Cloud Computing',
+    id: "data-scientist",
+    title: "Data Scientist",
+    category: "Data Analytics",
+    description: "Analyze and interpret complex data to inform business decisions.",
+    icon: "bar-chart-2",
     skills: [
-      { id: 'aws', name: 'AWS', category: 'Cloud Platform' },
-      { id: 'azure', name: 'Microsoft Azure', category: 'Cloud Platform' },
-      { id: 'linux', name: 'Linux', category: 'Operating System' },
-      { id: 'python', name: 'Python', category: 'Programming' },
-      { id: 'docker', name: 'Docker', category: 'Containerization' },
-      { id: 'terraform', name: 'Terraform', category: 'Infrastructure as Code' },
-      { id: 'ansible', name: 'Ansible', category: 'Configuration Management' },
-      { id: 'networking', name: 'Networking', category: 'Infrastructure' },
-      { id: 'monitoring', name: 'Monitoring Tools', category: 'Operations' },
-      { id: 'bash', name: 'Bash Scripting', category: 'Scripting' }
-    ]
-  },
-  
-  // AI/ML
-  {
-    id: 'ml-engineer',
-    title: 'Machine Learning Engineer',
-    description: 'Develop machine learning models and deploy them into production.',
-    category: 'AI/ML',
-    skills: [
-      { id: 'python', name: 'Python', category: 'Programming' },
-      { id: 'tensorflow', name: 'TensorFlow', category: 'ML Framework' },
-      { id: 'pytorch', name: 'PyTorch', category: 'ML Framework' },
-      { id: 'sklearn', name: 'Scikit-learn', category: 'ML Library' },
-      { id: 'ml-algorithms', name: 'ML Algorithms', category: 'Machine Learning' },
-      { id: 'deep-learning', name: 'Deep Learning', category: 'Machine Learning' },
-      { id: 'data-processing', name: 'Data Processing', category: 'Data' },
-      { id: 'feature-engineering', name: 'Feature Engineering', category: 'Data' },
-      { id: 'mlops', name: 'MLOps', category: 'Operations' },
-      { id: 'docker', name: 'Docker', category: 'Containerization' },
-      { id: 'statistics', name: 'Statistics', category: 'Mathematics' },
-      { id: 'sql', name: 'SQL', category: 'Database' }
+      { id: "python", name: "Python", category: "Programming", importance: 10 },
+      { id: "r", name: "R", category: "Programming", importance: 7 },
+      { id: "sql", name: "SQL", category: "Data Management", importance: 9 },
+      { id: "statistics", name: "Statistical Analysis", category: "Analysis", importance: 10 },
+      { id: "ml", name: "Machine Learning", category: "AI", importance: 9 },
+      { id: "data-viz", name: "Data Visualization", category: "Visualization", importance: 8 },
+      { id: "big-data", name: "Big Data Technologies", category: "Data", importance: 7 },
+      { id: "pandas", name: "Pandas", category: "Data Wrangling", importance: 9 },
+      { id: "numpy", name: "NumPy", category: "Computation", importance: 8 },
+      { id: "tableau", name: "Tableau", category: "Visualization", importance: 7 },
     ]
   },
   {
-    id: 'data-scientist',
-    title: 'Data Scientist',
-    description: 'Extract insights from data using statistical and machine learning methods.',
-    category: 'AI/ML',
+    id: "ml-engineer",
+    title: "Machine Learning Engineer",
+    category: "AIML",
+    description: "Develop and deploy machine learning models for production.",
+    icon: "brain",
     skills: [
-      { id: 'python', name: 'Python', category: 'Programming' },
-      { id: 'r', name: 'R', category: 'Programming' },
-      { id: 'statistics', name: 'Statistics', category: 'Mathematics' },
-      { id: 'ml-algorithms', name: 'ML Algorithms', category: 'Machine Learning' },
-      { id: 'data-visualization', name: 'Data Visualization', category: 'Visualization' },
-      { id: 'sql', name: 'SQL', category: 'Database' },
-      { id: 'pandas', name: 'Pandas', category: 'Data Analysis' },
-      { id: 'numpy', name: 'NumPy', category: 'Computation' },
-      { id: 'jupyter', name: 'Jupyter Notebooks', category: 'Development' },
-      { id: 'experiment-design', name: 'Experiment Design', category: 'Research' },
-      { id: 'etl', name: 'ETL', category: 'Data Engineering' }
-    ]
-  },
-  
-  // Data Analytics
-  {
-    id: 'data-analyst',
-    title: 'Data Analyst',
-    description: 'Analyze data to help organizations make better business decisions.',
-    category: 'Data Analytics',
-    skills: [
-      { id: 'sql', name: 'SQL', category: 'Database' },
-      { id: 'excel', name: 'Excel', category: 'Spreadsheet' },
-      { id: 'tableau', name: 'Tableau', category: 'Visualization' },
-      { id: 'power-bi', name: 'Power BI', category: 'Visualization' },
-      { id: 'python', name: 'Python', category: 'Programming' },
-      { id: 'r', name: 'R', category: 'Programming' },
-      { id: 'statistics', name: 'Statistics', category: 'Mathematics' },
-      { id: 'data-cleaning', name: 'Data Cleaning', category: 'Data Preparation' },
-      { id: 'communication', name: 'Communication', category: 'Soft Skills' },
-      { id: 'critical-thinking', name: 'Critical Thinking', category: 'Soft Skills' }
+      { id: "python", name: "Python", category: "Programming", importance: 10 },
+      { id: "ml-algorithms", name: "ML Algorithms", category: "AI", importance: 10 },
+      { id: "deep-learning", name: "Deep Learning", category: "AI", importance: 9 },
+      { id: "tensorflow", name: "TensorFlow", category: "Frameworks", importance: 9 },
+      { id: "pytorch", name: "PyTorch", category: "Frameworks", importance: 8 },
+      { id: "nlp", name: "Natural Language Processing", category: "AI", importance: 7 },
+      { id: "computer-vision", name: "Computer Vision", category: "AI", importance: 7 },
+      { id: "mlops", name: "MLOps", category: "Operations", importance: 8 },
+      { id: "model-deployment", name: "Model Deployment", category: "Operations", importance: 9 },
+      { id: "feature-engineering", name: "Feature Engineering", category: "Data", importance: 8 },
     ]
   },
   {
-    id: 'business-intelligence',
-    title: 'Business Intelligence Analyst',
-    description: 'Develop and maintain BI solutions to transform data into actionable insights.',
-    category: 'Data Analytics',
+    id: "aerospace-engineer",
+    title: "Aerospace Engineer",
+    category: "Aerospace",
+    description: "Design and test aircraft, spacecraft, and related systems.",
+    icon: "plane",
     skills: [
-      { id: 'sql', name: 'SQL', category: 'Database' },
-      { id: 'power-bi', name: 'Power BI', category: 'Visualization' },
-      { id: 'tableau', name: 'Tableau', category: 'Visualization' },
-      { id: 'data-warehousing', name: 'Data Warehousing', category: 'Data Management' },
-      { id: 'etl', name: 'ETL Processes', category: 'Data Engineering' },
-      { id: 'data-modeling', name: 'Data Modeling', category: 'Database Design' },
-      { id: 'excel', name: 'Excel', category: 'Spreadsheet' },
-      { id: 'dashboard-design', name: 'Dashboard Design', category: 'Visualization' },
-      { id: 'business-acumen', name: 'Business Acumen', category: 'Business' },
-      { id: 'requirement-gathering', name: 'Requirement Gathering', category: 'Analysis' }
-    ]
-  },
-  
-  // Aerospace/Aeronautical
-  {
-    id: 'aerospace-engineer',
-    title: 'Aerospace Engineer',
-    description: 'Design aircraft, spacecraft, satellites, and missiles.',
-    category: 'Aerospace',
-    skills: [
-      { id: 'cad', name: 'CAD Software', category: 'Design' },
-      { id: 'aerodynamics', name: 'Aerodynamics', category: 'Physics' },
-      { id: 'structural-analysis', name: 'Structural Analysis', category: 'Engineering' },
-      { id: 'matlab', name: 'MATLAB', category: 'Computation' },
-      { id: 'fea', name: 'Finite Element Analysis', category: 'Simulation' },
-      { id: 'computational-fluid-dynamics', name: 'Computational Fluid Dynamics', category: 'Simulation' },
-      { id: 'materials-science', name: 'Materials Science', category: 'Engineering' },
-      { id: 'propulsion', name: 'Propulsion Systems', category: 'Engineering' },
-      { id: 'avionics', name: 'Avionics', category: 'Electronics' },
-      { id: 'systems-engineering', name: 'Systems Engineering', category: 'Engineering' }
-    ]
-  },
-  
-  // Business
-  {
-    id: 'product-manager',
-    title: 'Product Manager',
-    description: 'Define the vision, strategy, and roadmap for products.',
-    category: 'Business',
-    skills: [
-      { id: 'product-strategy', name: 'Product Strategy', category: 'Strategy' },
-      { id: 'user-research', name: 'User Research', category: 'Research' },
-      { id: 'market-analysis', name: 'Market Analysis', category: 'Research' },
-      { id: 'roadmapping', name: 'Roadmapping', category: 'Planning' },
-      { id: 'agile', name: 'Agile Methodologies', category: 'Project Management' },
-      { id: 'user-stories', name: 'User Stories', category: 'Requirements' },
-      { id: 'wireframing', name: 'Wireframing', category: 'Design' },
-      { id: 'analytics', name: 'Analytics', category: 'Data' },
-      { id: 'stakeholder-management', name: 'Stakeholder Management', category: 'Communication' },
-      { id: 'presentation', name: 'Presentation Skills', category: 'Communication' },
-      { id: 'technical-knowledge', name: 'Technical Knowledge', category: 'Technical' }
+      { id: "cad", name: "CAD Software", category: "Design", importance: 9 },
+      { id: "fea", name: "Finite Element Analysis", category: "Analysis", importance: 9 },
+      { id: "cfd", name: "Computational Fluid Dynamics", category: "Analysis", importance: 9 },
+      { id: "materials", name: "Materials Science", category: "Engineering", importance: 8 },
+      { id: "propulsion", name: "Propulsion Systems", category: "Engineering", importance: 8 },
+      { id: "avionics", name: "Avionics", category: "Electronics", importance: 7 },
+      { id: "systems-engineering", name: "Systems Engineering", category: "Engineering", importance: 9 },
+      { id: "matlab", name: "MATLAB", category: "Computation", importance: 8 },
+      { id: "project-management", name: "Project Management", category: "Management", importance: 7 },
+      { id: "testing", name: "Testing Methodologies", category: "QA", importance: 8 },
     ]
   },
   {
-    id: 'project-manager',
-    title: 'Project Manager',
-    description: 'Plan, execute, and close projects to achieve specific goals and success criteria.',
-    category: 'Business',
+    id: "product-manager",
+    title: "Product Manager",
+    category: "Business",
+    description: "Oversee product development from conception to launch.",
+    icon: "briefcase",
     skills: [
-      { id: 'project-planning', name: 'Project Planning', category: 'Planning' },
-      { id: 'risk-management', name: 'Risk Management', category: 'Management' },
-      { id: 'agile', name: 'Agile Methodologies', category: 'Methodologies' },
-      { id: 'waterfall', name: 'Waterfall Methodology', category: 'Methodologies' },
-      { id: 'scrum', name: 'Scrum', category: 'Frameworks' },
-      { id: 'kanban', name: 'Kanban', category: 'Frameworks' },
-      { id: 'budget-management', name: 'Budget Management', category: 'Finance' },
-      { id: 'communication', name: 'Communication', category: 'Soft Skills' },
-      { id: 'leadership', name: 'Leadership', category: 'Soft Skills' },
-      { id: 'negotiation', name: 'Negotiation', category: 'Soft Skills' },
-      { id: 'ms-project', name: 'Microsoft Project', category: 'Tools' },
-      { id: 'jira', name: 'JIRA', category: 'Tools' }
+      { id: "product-strategy", name: "Product Strategy", category: "Strategy", importance: 10 },
+      { id: "ux", name: "User Experience", category: "Design", importance: 9 },
+      { id: "market-research", name: "Market Research", category: "Research", importance: 9 },
+      { id: "agile", name: "Agile Methodologies", category: "Process", importance: 8 },
+      { id: "roadmapping", name: "Product Roadmapping", category: "Planning", importance: 9 },
+      { id: "stakeholder-management", name: "Stakeholder Management", category: "Communication", importance: 8 },
+      { id: "data-analysis", name: "Data Analysis", category: "Analysis", importance: 8 },
+      { id: "presentation", name: "Presentation Skills", category: "Communication", importance: 7 },
+      { id: "project-management", name: "Project Management", category: "Management", importance: 8 },
+      { id: "technical-understanding", name: "Technical Understanding", category: "Knowledge", importance: 7 },
     ]
   }
 ];

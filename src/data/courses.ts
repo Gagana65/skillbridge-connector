@@ -4,243 +4,181 @@ export interface Course {
   title: string;
   provider: string;
   description: string;
-  skills: string[];
-  level: 'Beginner' | 'Intermediate' | 'Advanced';
   duration: string;
+  level: "Beginner" | "Intermediate" | "Advanced";
+  skills: string[]; // Skill IDs this course teaches
+  rating: number; // 1-5 scale
   url: string;
-  rating: number;
+  image?: string;
 }
 
 const courses: Course[] = [
   // AWS Courses
   {
     id: "aws-certified-solutions-architect",
-    title: "AWS Certified Solutions Architect",
+    title: "AWS Certified Solutions Architect Associate",
     provider: "Amazon Web Services",
-    description: "Learn to design and deploy scalable, highly available systems on AWS. This course covers key AWS services and best practices for building secure and reliable applications.",
-    skills: ["AWS", "Cloud Architecture", "Security", "Networking"],
-    level: "Intermediate",
-    duration: "40 hours",
-    url: "https://aws.amazon.com/training/learn-about/architect/",
-    rating: 4.8
-  },
-  {
-    id: "aws-certified-developer",
-    title: "AWS Certified Developer",
-    provider: "Amazon Web Services",
-    description: "Develop, deploy, and debug cloud-based applications using AWS. Learn how to write code that optimizes AWS services and implement AWS security best practices.",
-    skills: ["AWS", "Cloud Development", "Security", "Lambda"],
-    level: "Intermediate",
+    description: "Learn to design and implement distributed systems on AWS.",
     duration: "30 hours",
-    url: "https://aws.amazon.com/training/learn-about/developer/",
-    rating: 4.7
+    level: "Intermediate",
+    skills: ["aws", "networking", "security"],
+    rating: 4.8,
+    url: "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+    image: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Solutions-Architect-Associate_badge.3419559c682629072f1eb968d59dea0741772c0f.png"
   },
   
   // Azure Courses
   {
     id: "azure-fundamentals",
     title: "Microsoft Azure Fundamentals",
-    provider: "Microsoft",
-    description: "Build foundational knowledge of cloud services and how those services are provided with Microsoft Azure. Learn cloud concepts, core Azure services, security, privacy, compliance, and trust.",
-    skills: ["Azure", "Cloud Computing", "Security"],
+    provider: "Microsoft Learn",
+    description: "Learn Azure cloud concepts, core services, security, privacy, compliance, and trust.",
+    duration: "10 hours",
     level: "Beginner",
-    duration: "8 hours",
-    url: "https://learn.microsoft.com/en-us/training/paths/az-900-describe-cloud-concepts/",
-    rating: 4.6
-  },
-  {
-    id: "azure-administrator",
-    title: "Microsoft Azure Administrator",
-    provider: "Microsoft",
-    description: "Learn how to implement, monitor, and maintain Microsoft Azure solutions, including major services related to compute, storage, network, and security.",
-    skills: ["Azure", "Cloud Administration", "Networking", "Security"],
-    level: "Intermediate",
-    duration: "40 hours",
-    url: "https://learn.microsoft.com/en-us/training/paths/az-104-administrator-prerequisites/",
-    rating: 4.7
+    skills: ["azure", "security"],
+    rating: 4.7,
+    url: "https://learn.microsoft.com/en-us/certifications/azure-fundamentals/",
+    image: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg"
   },
   
   // GCP Courses
   {
-    id: "gcp-fundamentals",
-    title: "Google Cloud Fundamentals",
+    id: "gcp-professional-cloud-architect",
+    title: "Google Professional Cloud Architect",
     provider: "Google Cloud",
-    description: "Gain an overview of Google Cloud Platform and a detailed look at the essential features. Learn about computing, storage, networking, security, and more.",
-    skills: ["Google Cloud Platform", "Cloud Computing"],
-    level: "Beginner",
-    duration: "10 hours",
-    url: "https://cloud.google.com/training/courses/fundamentals",
-    rating: 4.5
+    description: "Design, develop, and manage robust, secure, scalable, highly available, and dynamic solutions to drive business objectives.",
+    duration: "40 hours",
+    level: "Advanced",
+    skills: ["gcp", "security", "networking"],
+    rating: 4.6,
+    url: "https://cloud.google.com/certification/cloud-architect",
+    image: "https://cloud.google.com/certification/images/cloud-architect.png"
   },
   
-  // Infrastructure as Code
+  // Docker & Kubernetes Courses
   {
-    id: "terraform-fundamentals",
-    title: "Terraform Fundamentals",
+    id: "docker-kubernetes-complete-guide",
+    title: "Docker and Kubernetes: The Complete Guide",
+    provider: "Udemy",
+    description: "Master Docker and Kubernetes by building and deploying real web applications.",
+    duration: "22 hours",
+    level: "Intermediate",
+    skills: ["docker", "kubernetes", "cicd"],
+    rating: 4.7,
+    url: "https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/",
+    image: "https://img-c.udemycdn.com/course/750x422/1793828_7999.jpg"
+  },
+
+  // Terraform Courses
+  {
+    id: "terraform-associate-certification",
+    title: "HashiCorp Terraform Associate Certification",
     provider: "HashiCorp",
-    description: "Learn how to use Terraform to automate infrastructure deployment. This course covers Terraform basics, configuration language, providers, and best practices.",
-    skills: ["Terraform", "Infrastructure as Code", "DevOps"],
-    level: "Beginner",
-    duration: "6 hours",
-    url: "https://learn.hashicorp.com/collections/terraform/certification",
-    rating: 4.9
+    description: "Learn Infrastructure as Code (IaC) with Terraform to automate the provisioning of your cloud infrastructure.",
+    duration: "16 hours",
+    level: "Intermediate",
+    skills: ["terraform", "cicd"],
+    rating: 4.5,
+    url: "https://www.hashicorp.com/certification/terraform-associate",
+    image: "https://www.datocms-assets.com/2885/1620155116-brandhcterraformverticalcolor.svg"
   },
   
-  // Containerization
+  // Python Courses
   {
-    id: "docker-kubernetes-fundamentals",
-    title: "Docker and Kubernetes Fundamentals",
-    provider: "Linux Foundation",
-    description: "Learn containerization with Docker and orchestration with Kubernetes. This course covers container creation, management, deployment strategies, and scaling.",
-    skills: ["Docker", "Kubernetes", "Containerization", "Microservices"],
+    id: "python-for-data-science",
+    title: "Python for Data Science and Machine Learning",
+    provider: "Coursera",
+    description: "Learn to use Python for data analysis, visualization, and machine learning.",
+    duration: "40 hours",
     level: "Intermediate",
-    duration: "25 hours",
-    url: "https://training.linuxfoundation.org/training/kubernetes-fundamentals/",
-    rating: 4.7
+    skills: ["python", "pandas", "numpy", "ml-algorithms"],
+    rating: 4.8,
+    url: "https://www.coursera.org/specializations/data-science-python",
+    image: "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/3d/d26d401ae411e5a53c7a83d4d1ccbd/PPYTHON-1.jpg"
   },
   
-  // Machine Learning
-  {
-    id: "machine-learning-specialization",
-    title: "Machine Learning Specialization",
-    provider: "Coursera (Stanford University)",
-    description: "Learn fundamental AI concepts and develop practical machine learning skills. This course covers supervised learning, unsupervised learning, and best practices in machine learning.",
-    skills: ["Python", "Machine Learning", "Supervised Learning", "Unsupervised Learning"],
-    level: "Intermediate",
-    duration: "60 hours",
-    url: "https://www.coursera.org/specializations/machine-learning-introduction",
-    rating: 4.9
-  },
+  // Machine Learning Courses
   {
     id: "deep-learning-specialization",
     title: "Deep Learning Specialization",
-    provider: "Coursera (DeepLearning.AI)",
-    description: "Master deep learning techniques and build neural networks. Learn about CNNs, RNNs, LSTM, and how to lead successful machine learning projects.",
-    skills: ["Deep Learning", "Neural Networks", "TensorFlow", "PyTorch"],
-    level: "Intermediate",
-    duration: "80 hours",
+    provider: "Coursera - deeplearning.ai",
+    description: "Become a Deep Learning expert. Master Deep Learning and Break into AI.",
+    duration: "90 hours",
+    level: "Advanced",
+    skills: ["ml-algorithms", "deep-learning", "tensorflow", "python"],
+    rating: 4.9,
     url: "https://www.coursera.org/specializations/deep-learning",
-    rating: 4.8
+    image: "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/e3/d9861012d343ce889444325fa54bf8/Logo3.png"
   },
+
+  // NLP Courses
   {
-    id: "tensorflow-developer",
-    title: "TensorFlow Developer Certificate",
-    provider: "TensorFlow",
-    description: "Develop deep learning applications with TensorFlow. Learn how to build and train neural networks for computer vision, NLP, and time series forecasting.",
-    skills: ["TensorFlow", "Neural Networks", "Deep Learning", "Computer Vision"],
+    id: "nlp-specialization",
+    title: "Natural Language Processing Specialization",
+    provider: "Coursera - deeplearning.ai",
+    description: "Learn to build and apply NLP models to real-world applications.",
+    duration: "60 hours",
     level: "Intermediate",
-    duration: "50 hours",
-    url: "https://www.tensorflow.org/certificate",
-    rating: 4.7
+    skills: ["nlp", "python", "deep-learning"],
+    rating: 4.7,
+    url: "https://www.coursera.org/specializations/natural-language-processing",
+    image: "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/a6/cee8c0b7dd11e8a8ae875ea36aff31/Course-Logo.png"
   },
   
-  // Data Analysis
+  // Aerospace Engineering Courses
   {
-    id: "data-analysis-with-python",
-    title: "Data Analysis with Python",
-    provider: "IBM",
-    description: "Learn how to analyze data using Python. This course covers data wrangling, exploratory data analysis, model development, and evaluation using Python libraries.",
-    skills: ["Python", "Pandas", "NumPy", "Data Visualization"],
+    id: "intro-to-aerospace-engineering",
+    title: "Introduction to Aerospace Engineering",
+    provider: "edX - MIT",
+    description: "Explore the exciting world of aerospace engineering and flight.",
+    duration: "12 weeks",
     level: "Beginner",
-    duration: "20 hours",
-    url: "https://www.coursera.org/learn/data-analysis-with-python",
-    rating: 4.6
-  },
-  {
-    id: "sql-for-data-analysis",
-    title: "SQL for Data Analysis",
-    provider: "Udacity",
-    description: "Learn SQL fundamentals for analyzing data. This course covers data manipulation, aggregations, subqueries, window functions, and joins.",
-    skills: ["SQL", "Database", "Data Analysis"],
-    level: "Beginner",
-    duration: "15 hours",
-    url: "https://www.udacity.com/course/sql-for-data-analysis--ud198",
-    rating: 4.5
+    skills: ["propulsion", "avionics", "systems-engineering"],
+    rating: 4.6,
+    url: "https://www.edx.org/course/introduction-to-aerospace-engineering-astronautics",
+    image: "https://prod-discovery.edx-cdn.org/media/course/image/e443769c-2e7a-4878-9c79-0d6e0be8642c-8c7663bd61d7.small.jpg"
   },
   
-  // Data Visualization
+  // CAD Courses
   {
-    id: "tableau-analyst",
-    title: "Tableau Desktop Specialist",
-    provider: "Tableau",
-    description: "Learn how to create effective visualizations with Tableau. This course covers creating basic to complex visualizations, calculations, and dashboards.",
-    skills: ["Tableau", "Data Visualization", "Dashboard Design"],
-    level: "Beginner",
-    duration: "25 hours",
-    url: "https://www.tableau.com/learn/certification/desktop-specialist",
-    rating: 4.7
-  },
-  {
-    id: "power-bi-data-analyst",
-    title: "Microsoft Power BI Data Analyst",
-    provider: "Microsoft",
-    description: "Learn how to build and implement Power BI solutions. This course covers data preparation, modeling, visualization, and analysis with Power BI.",
-    skills: ["Power BI", "Data Modeling", "DAX", "Data Visualization"],
+    id: "cad-for-aerospace",
+    title: "CAD for Aerospace Design",
+    provider: "Udemy",
+    description: "Master CAD software for aerospace engineering applications.",
+    duration: "28 hours",
     level: "Intermediate",
-    duration: "30 hours",
-    url: "https://learn.microsoft.com/en-us/training/paths/power-bi-data-analyst/",
-    rating: 4.8
+    skills: ["cad", "materials"],
+    rating: 4.5,
+    url: "https://www.udemy.com/course/fusion-360-for-aerospace-engineers/",
+    image: "https://img-c.udemycdn.com/course/750x422/2056652_6a4c_4.jpg"
   },
   
-  // Aerospace Engineering
-  {
-    id: "flight-dynamics-control",
-    title: "Flight Dynamics and Control",
-    provider: "edX (MIT)",
-    description: "Learn the principles of flight dynamics and control systems for aircraft. This course covers aerodynamics, stability, control laws, and simulation.",
-    skills: ["Aerodynamics", "Control Systems", "MATLAB", "Simulation"],
-    level: "Advanced",
-    duration: "45 hours",
-    url: "https://www.edx.org/professional-certificate/mitx-system-engineering",
-    rating: 4.8
-  },
-  {
-    id: "computational-fluid-dynamics",
-    title: "Computational Fluid Dynamics",
-    provider: "Coursera (University of Colorado Boulder)",
-    description: "Learn numerical simulation techniques for fluid flow. This course covers governing equations, discretization methods, turbulence modeling, and CFD software usage.",
-    skills: ["Computational Fluid Dynamics", "Numerical Methods", "Simulation"],
-    level: "Advanced",
-    duration: "40 hours",
-    url: "https://www.coursera.org/learn/computational-fluid-dynamics",
-    rating: 4.6
-  },
-  
-  // Product Management
+  // Product Management Courses
   {
     id: "product-management-fundamentals",
     title: "Product Management Fundamentals",
     provider: "Product School",
-    description: "Learn the fundamentals of product management. This course covers product strategy, roadmapping, user research, and product development methodologies.",
-    skills: ["Product Strategy", "Roadmapping", "User Research", "Agile"],
+    description: "Learn the fundamentals of product management in the digital age.",
+    duration: "8 weeks",
     level: "Beginner",
-    duration: "30 hours",
+    skills: ["product-strategy", "roadmapping", "stakeholder-management"],
+    rating: 4.7,
     url: "https://productschool.com/product-management-certification/",
-    rating: 4.7
+    image: "https://productschool.com/wp-content/uploads/2023/05/product-management-certification-pmc-new.png"
   },
   
-  // Project Management
+  // Agile Courses
   {
-    id: "pmp-certification",
-    title: "Project Management Professional (PMP)",
-    provider: "PMI",
-    description: "Prepare for the PMP certification exam. This course covers project management frameworks, methodologies, and best practices across various industries.",
-    skills: ["Project Planning", "Risk Management", "Stakeholder Management", "Agile"],
-    level: "Advanced",
-    duration: "60 hours",
-    url: "https://www.pmi.org/certifications/project-management-pmp",
-    rating: 4.8
-  },
-  {
-    id: "agile-scrum-master",
-    title: "Certified ScrumMaster (CSM)",
-    provider: "Scrum Alliance",
-    description: "Learn Scrum framework and practices for agile project management. This course covers Scrum roles, events, artifacts, and implementation.",
-    skills: ["Scrum", "Agile", "Team Facilitation", "Sprint Planning"],
-    level: "Intermediate",
+    id: "professional-scrum-master",
+    title: "Professional Scrum Master I",
+    provider: "Scrum.org",
+    description: "Learn Scrum theory and practice for effective Agile product development.",
     duration: "16 hours",
-    url: "https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster",
-    rating: 4.6
+    level: "Intermediate",
+    skills: ["agile", "project-management"],
+    rating: 4.6,
+    url: "https://www.scrum.org/professional-scrum-certifications/professional-scrum-master-i-certification",
+    image: "https://static.scrum.org/web/badges/badge-psmi.svg"
   }
 ];
 
