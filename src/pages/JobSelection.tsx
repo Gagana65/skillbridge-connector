@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,7 +7,7 @@ import { useToast } from '@/hooks/use-toast';
 import Navbar from '@/components/Navbar';
 import AnimatedTransition from '@/components/AnimatedTransition';
 import jobRoles from '@/data/jobRoles';
-import { Search, ArrowRight, Briefcase, Cloud, BarChart2, Brain, Plane } from 'lucide-react';
+import { Search, ArrowRight, Briefcase, Cloud, BarChart2, Brain, Plane, Code, Computer, Wrench, Database } from 'lucide-react';
 
 // Create a mapping of icon names to actual icon components
 const iconMap = {
@@ -17,6 +16,11 @@ const iconMap = {
   'brain': Brain,
   'plane': Plane,
   'briefcase': Briefcase,
+  'code': Code,
+  'computer': Computer,
+  'wrench': Wrench,
+  'database': Database,
+  'design': Briefcase, // Using Briefcase as fallback for design icon
 };
 
 const JobSelection = () => {
