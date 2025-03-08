@@ -8,7 +8,16 @@ import { useToast } from '@/hooks/use-toast';
 import Navbar from '@/components/Navbar';
 import AnimatedTransition from '@/components/AnimatedTransition';
 import jobRoles from '@/data/jobRoles';
-import { Search, ArrowRight } from 'lucide-react';
+import { Search, ArrowRight, Briefcase, Cloud, BarChart2, Brain, Plane } from 'lucide-react';
+
+// Create a mapping of icon names to actual icon components
+const iconMap = {
+  'cloud': Cloud,
+  'bar-chart-2': BarChart2,
+  'brain': Brain,
+  'plane': Plane,
+  'briefcase': Briefcase,
+};
 
 const JobSelection = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -67,17 +76,8 @@ const JobSelection = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {filteredJobs.map((job, index) => {
-              // Dynamic imports don't work well with Lucide icons, so we'll handle it differently
-              let IconComponent;
-              try {
-                // Try to directly import from 'lucide-react'
-                const { [job.icon]: Icon } = require('lucide-react');
-                IconComponent = Icon;
-              } catch (error) {
-                // Fallback to a default icon
-                const { Briefcase } = require('lucide-react');
-                IconComponent = Briefcase;
-              }
+              // Get the appropriate icon component from our map, fallback to Briefcase
+              const IconComponent = iconMap[job.icon as keyof typeof iconMap] || Briefcase;
               
               return (
                 <AnimatedTransition
@@ -94,7 +94,7 @@ const JobSelection = () => {
                     <CardHeader>
                       <div className="flex justify-between items-center">
                         <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                          {IconComponent && <IconComponent className="h-5 w-5 text-primary" />}
+                          <IconComponent className="h-5 w-5 text-primary" />
                         </div>
                         <div className="text-xs bg-secondary px-2 py-1 rounded-full">
                           {job.category}
